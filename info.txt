@@ -1,0 +1,45 @@
+To understand observer pattern, first you need to understand the subject and observer objects.
+
+The relation between subject and observer can easily be understood as an analogy to magazine subscription.
+
+A magazine publisher(subject) is in the business and publishes magazines (data).
+If you(user of data/observer) are interested in the magazine you subscribe(register), and if a new edition 
+is published it gets delivered to you.
+If you unsubscribe(unregister) you stop getting new editions.
+Publisher doesn’t know who you are and how you use the magazine, it just delivers it to you because you are 
+a subscriber(loose coupling).
+
+Definition:
+
+The Observer Pattern defines a one to many dependency between objects so that one object changes state, all of 
+its dependents are notified and updated automatically.
+
+Explanation:
+
+One to many dependency is between Subject(One) and Observer(Many).
+There is dependency as Observers themselves don’t have access to data. They are dependent on Subject to provide them data.
+
+When to use this pattern?
+You should consider using this pattern in your application when multiple objects are dependent on the state of one object as it 
+provides a neat and well tested design for the same.
+
+Social media, RSS feeds, email subscription in which you have the option to follow or subscribe and you receive latest notification.
+All users of an app on play store gets notified if there is an update
+
+*** works on notifying many users
+
+1. Observable/Subject interface     ----> for here it is stockObservable
+    list<Observable interface> objerversSet;
+    add(Observer interface obj) or register()
+    remove(Observer interface obj) or 
+    notify()
+    setData()
+    getData()
+
+    make different other observables which implements subjects -- like here Iphone Observable, penObservable (is - a relation)
+        here it is iPhone Observable and do all the functions work
+
+2. Observer interface       --  here it is notificationAlertObserver
+    update() in it
+
+    make other observer like mobile, laptop
